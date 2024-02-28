@@ -26,8 +26,8 @@ export default function Home() {
     return(
         <>
             <section className="hero">
-                <h1>Welcome to Van Life - Your Gateway to Adventure!</h1>
-                <button>Start Exploring</button>
+                <Hero>Welcome to Van Life <span>- Your Gateway to Adventure!</span></Hero>
+                <ExploreBtn>Start Exploring</ExploreBtn>
             </section>
             <section className="features">
                 {
@@ -39,6 +39,32 @@ export default function Home() {
         </>
     )
 }
+
+const Hero = styled.h1`
+    font-size: 2rem;
+    font-weight: 800;
+    text-align: center;
+    
+    span {
+        font-size: 1.5rem;
+        font-weight: 400;
+        white-space: nowrap;
+    }
+`
+
+const ExploreBtn = styled.button`
+    width: 100%;
+    background-color: #ff8437;
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: .125em;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    padding: 1em;
+    margin: 1em 0;
+`
 
 const Image = styled.img`
     width: 100%;
