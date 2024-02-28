@@ -1,10 +1,16 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 import Home from './pages/Home'
 import About from './pages/About'
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom' 
 
+// Mirage server
+import { makeServer } from "./server"
+
+makeServer()
+
 function App() {
+
   return (
     <>
       <BrowserRouter>

@@ -2,6 +2,16 @@ import { useEffect, useState } from "react"
 import styled, { keyframes } from "styled-components"
 
 export default function Home() {
+    const [images, setImages] = useState([])
+
+    useEffect(() => {
+        fetch("/api/van-data")
+        .then( (res) => res.json() )
+        .then( (json) => {
+            setImages(json.images)
+        } )
+    }, [])
+
     const [showImg, setShowImg] = useState(0);
 
     const nextImage = () => {
@@ -11,8 +21,7 @@ export default function Home() {
     useEffect(() => {
         const slideInterval = setInterval(nextImage, 3000);
         return () => clearInterval(slideInterval);
-      }, [showImg]);
-    
+    }, [showImg]);
 
     return(
         <>
@@ -21,10 +30,11 @@ export default function Home() {
                 <button>Start Exploring</button>
             </section>
             <section className="features">
-                <Image src="/images/nature-van.jpg" alt="" {...(showImg === 0) ? {$status:"active"} : {$status:""} }/>
-                <Image src="/images/snow-van.jpg" alt="" {...(showImg === 1) ? {$status:"active"} : {$status:""} }/>
-                <Image src="/images/couple-van.jpg" alt="" {...(showImg === 2) ? {$status:"active"} : {$status:""} }/>
-                <Image src="/images/yellow-van.jpg" alt="" {...(showImg === 3) ? {$status:"active"} : {$status:""} }/>
+                {
+                    images.map((image, index) => (
+                            <Image src={image.url} alt="image" key={index} {...(showImg === index) ? {$status:"active"} : {$status:""} }/>
+                    ))
+                }
             </section>
         </>
     )
