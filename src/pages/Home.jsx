@@ -44,7 +44,7 @@ const Hero = styled.h1`
     font-size: 2rem;
     font-weight: 800;
     text-align: center;
-    
+    padding: 0.5em 0;
     span {
         font-size: 1.5rem;
         font-weight: 400;
