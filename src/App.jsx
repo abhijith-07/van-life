@@ -45,6 +45,7 @@ export default App
 
 const Navbar = styled.nav`
   display: flex;
+  width: 100vw;
   position: sticky;
   justify-content: right;
   align-items: center;
