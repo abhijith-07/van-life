@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react"
 import styled, { keyframes } from "styled-components"
+import { Link } from "react-router-dom"
+
 
 export default function Home() {
     const [images, setImages] = useState([])
@@ -27,7 +29,9 @@ export default function Home() {
         <>
             <section className="hero">
                 <Hero>Welcome to Van Life <span>- Your Gateway to Adventure!</span></Hero>
-                <ExploreBtn>Start Exploring</ExploreBtn>
+                <Link to={"/vans"}>
+                    <ExploreBtn>Start Exploring</ExploreBtn>
+                </Link>
             </section>
             <section className="features">
                 {

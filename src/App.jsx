@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import './App.css'
 import Home from './pages/Home'
 import About from './pages/About'
+import Vans from './pages/Vans'
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom' 
 
 // Mirage server
@@ -25,6 +26,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About/>} />
+            <Route path="/vans" element={<Vans />} />
           </Routes>
         </main>
         <footer>
@@ -47,7 +49,7 @@ const Navbar = styled.nav`
   justify-content: right;
   align-items: center;
   gap: 1em;
-  height: 3.5rem;
+  height: 50px;
   padding: 0.5em 1em;
   background-color: #190d05;
   a {
@@ -66,7 +68,8 @@ const Contact = styled.div`
   bottom: 0;
   background-color: #190d05;
   color: #f6f2f0;
-  padding: 1em 1em 2.5em;
+  height: 60px;
+  padding-top: 0.5em;
 `
 
 const Copyright = styled.p`
