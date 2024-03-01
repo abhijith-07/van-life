@@ -29,7 +29,7 @@ export default function Home() {
         <>
             <section className="hero">
                 <Hero>Welcome to Van Life <span>- Your Gateway to Adventure!</span></Hero>
-                <Link to={"/vans"}>
+                <Link to={"/vans/"}>
                     <ExploreBtn>Start Exploring</ExploreBtn>
                 </Link>
             </section>

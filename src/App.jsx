@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react'
 import './App.css'
 import Home from './pages/Home'
 import About from './pages/About'
-import Vans from './pages/Vans'
+import VansList from './pages/VansList'
+import Van from './pages/Van'
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom' 
 
 // Mirage server
@@ -26,7 +27,8 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About/>} />
-            <Route path="/vans" element={<Vans />} />
+            <Route path="/vans" element={<VansList />} />
+            <Route path="/vans/van/:id" element={<Van />} />
           </Routes>
         </main>
         <footer>

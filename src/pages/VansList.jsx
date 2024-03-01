@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react"
+import { Link } from "react-router-dom"
 import styled from "styled-components"
 
-export default function Vans() {
+export default function VansList() {
     const [vansImg, setVansImg] = useState([])
     
     useEffect(() => {
@@ -14,10 +15,12 @@ export default function Vans() {
         <VanContainer>
             {
                 vansImg.map((img, idx) => (
-                    <Card>
-                        <img src={img.url} key={idx} alt="" />
-                        <h6>Van {idx + 1}</h6>
-                    </Card>
+                    <Link to={`/vans/van/${idx}`}>
+                        <Card>
+                            <img src={img.url} key={idx} alt="" />
+                            <h6>Van {idx + 1}</h6>
+                        </Card>
+                    </Link>
                 ))
             }
         </VanContainer>
@@ -31,6 +34,10 @@ const VanContainer = styled.div`
     grid-template-columns: 1fr 1fr;
     gap: 1em;
     padding: 1rem 0 70px 0;
+
+    a{
+        cursor: pointer;
+    }
 `
 
 const Card = styled.div`
