@@ -15,10 +15,10 @@ export default function VansList() {
         <VanContainer>
             {
                 vansImg.map((img, idx) => (
-                    <Link to={`/vans/van/${idx}`}>
+                    <Link to={`/vans/van/${img.id}`} key={idx} >
                         <Card>
-                            <img src={img.url} key={idx} alt="" />
-                            <h6>Van {idx + 1}</h6>
+                            <img src={img.url} alt="" />
+                            <h6>Van {img.id}</h6>
                         </Card>
                     </Link>
                 ))
