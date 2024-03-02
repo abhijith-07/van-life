@@ -65,7 +65,6 @@ const Navbar = styled.nav`
 `
 
 const Contact = styled.div`
-  position: fixed;
   width: 100%;
   text-align: center;
   bottom: 0;
