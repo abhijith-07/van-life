@@ -43,7 +43,7 @@ export function makeServer({ environment = "test" } = {}) {
       ]
     }))
 
-    this.get("/api/van-data/vid/:id", (request) => {
+    this.get("/api/van-data/vid/:id", (schema, request) => {
       const id = request.params.id;
       return schema.vans.find(id)
     })

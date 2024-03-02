@@ -1,8 +1,9 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 
 
 export default function Van() {
+    const [vanDetails, setVanDetails] = useState([])
     const params = useParams()
 
     useEffect(() => {
@@ -12,6 +13,8 @@ export default function Van() {
     },[])
 
     return(
-        <h2>{params.id}</h2>
+        <div>
+            {vanDetails}
+        </div>
     )
 }
