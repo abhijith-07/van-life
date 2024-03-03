@@ -5,7 +5,8 @@ export default function Header() {
     return(
         <header>
           <Navbar>
-            <Link to="/">Home</Link> <br />
+            <Link to="/">Home</Link>
+            <Link to="/vans">Vans</Link>
             <Link to="/about">About</Link>
           </Navbar>
         </header>
