@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react'
 import './App.css'
 import Home from './pages/Home'
 import About from './pages/About'
@@ -14,7 +13,6 @@ import Layout from './components/Layout'
 
 // Mirage server
 import { makeServer } from "./server"
-import styled from 'styled-components'
 import HostLayout from './components/HostLayout'
 
 makeServer()
