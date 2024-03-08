@@ -13,6 +13,7 @@ import Layout from './components/Layout'
 // Mirage server
 import { makeServer } from "./server"
 import styled from 'styled-components'
+import HostLayout from './components/HostLayout'
 
 makeServer()
 
@@ -29,7 +30,7 @@ function App() {
               <Route path="/vans" element={<VansList />} />
               <Route path="/vans/van/:id" element={<Van />} />
               
-              <Route path="/host" element={<Dashboard />}>
+              <Route path="/host" element={<HostLayout />}>
                 <Route path="/host/income" element={<Income />} />
                 <Route path="/host/reviews" element={<Reviews />} />
               </Route>
