@@ -1,14 +1,14 @@
-import { Link } from "react-router-dom"
+import { NavLink } from "react-router-dom"
 import styled from "styled-components"
 
 export default function Header() {
     return(
         <header>
           <Navbar>
-            <Link to="/">Home</Link>
-            <Link to="/vans">Vans</Link>
-            <Link to="/host">Host</Link>
-            <Link to="/about">About</Link>
+            <NavLink to="/" style={({isActive}) => isActive ? activeStyle : null }>Home</NavLink>
+            <NavLink to="/vans" style={({isActive}) => isActive ? activeStyle : null }>Vans</NavLink>
+            <NavLink to="/host" style={({isActive}) => isActive ? activeStyle : null }>Host</NavLink>
+            <NavLink to="/about" style={({isActive}) => isActive ? activeStyle : null }>About</NavLink>
           </Navbar>
         </header>
     )
@@ -32,3 +32,8 @@ const Navbar = styled.nav`
     color: #cd5302;
   }
 `
+
+const activeStyle = {
+  color: "#cd5302",
+  textDecoration: "underline"
+}
