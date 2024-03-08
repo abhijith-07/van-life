@@ -1,14 +1,13 @@
 import styled from "styled-components"
-import { Link, Outlet } from "react-router-dom"
+import { NavLink, Outlet } from "react-router-dom"
 
 export default function HostLayout() {
     return(
         <>
         <HostNav>
-            <Link to="/host">Dashboard</Link>
-            <Link to="/host/income">Income</Link>
-            <Link to="/host/reviews">Reviews</Link>
-            
+            <NavLink to="/host" end style={({isActive}) => isActive ? activeNav : null }>Dashboard</NavLink>
+            <NavLink to="/host/income" style={({isActive}) => isActive ? activeNav : null }>Income</NavLink>
+            <NavLink to="/host/reviews" style={({isActive}) => isActive ? activeNav : null }>Reviews</NavLink>
         </HostNav>
         
         <Outlet />
@@ -24,3 +23,7 @@ const HostNav = styled.nav`
         text-decoration: none;
     }
 `
+
+const activeNav = {
+    textDecoration: "underline"
+}
