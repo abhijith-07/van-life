@@ -13,8 +13,6 @@ export default function Van() {
         .then(json => setVanDetails(json.vans))
     },[])
 
-    console.log(vanDetails)
-
     return(
         <DetailsContainer>
             <img src={vanDetails.url} alt={vanDetails.name} />
