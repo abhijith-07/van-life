@@ -5,10 +5,10 @@ export default function Header() {
     return(
         <header>
           <Navbar>
-            <NavLink to="/" style={({isActive}) => isActive ? activeStyle : null }>Home</NavLink>
-            <NavLink to="/vans" style={({isActive}) => isActive ? activeStyle : null }>Vans</NavLink>
-            <NavLink to="/host" style={({isActive}) => isActive ? activeStyle : null }>Host</NavLink>
-            <NavLink to="/about" style={({isActive}) => isActive ? activeStyle : null }>About</NavLink>
+            <NavLink to="." style={({isActive}) => isActive ? activeStyle : null }>Home</NavLink>
+            <NavLink to="vans" style={({isActive}) => isActive ? activeStyle : null }>Vans</NavLink>
+            <NavLink to="host" style={({isActive}) => isActive ? activeStyle : null }>Host</NavLink>
+            <NavLink to="about" style={({isActive}) => isActive ? activeStyle : null }>About</NavLink>
           </Navbar>
         </header>
     )
