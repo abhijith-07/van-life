@@ -48,7 +48,7 @@ export function makeServer({ environment = "test" } = {}) {
       return schema.vans.find(id)
     })
 
-    this.get("/api/host/vans/id", () => {
+    this.get("/api/host/vans/:id", () => {
       const id = request.params.id;
       return this.schema.vans.where({ id, hostId: "123" })
     })
