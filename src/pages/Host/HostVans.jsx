@@ -73,12 +73,3 @@ const Details = styled.div`
     }
 
 `
-
-//             <Link to="/host/vans">
-//                 <BackButton>
-//                     &larr; Back to Vans
-//                 </BackButton>
-//             </Link>
-// const BackButton = styled.span`
-//     cursor: pointer;
-// `
