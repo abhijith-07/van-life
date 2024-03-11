@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { Link, useParams } from "react-router-dom"
+import { Link, useParams, NavLink, Outlet } from "react-router-dom"
 import styled from "styled-components";
 
 export default function HostVanDetails() {
@@ -32,6 +32,12 @@ export default function HostVanDetails() {
                     <p><span>&#8377;</span>{vanDetails.price}</p>
                 </div>
             </VanContainer>
+            <VanHostNav>
+                <NavLink to="." end style={ ({ isActive }) => isActive ? NavStyle : null }>Details</NavLink>
+                <NavLink to="pricing" style={ ({ isActive }) => isActive ? NavStyle : null }>Pricing</NavLink>
+                <NavLink to="photos" style={ ({ isActive }) => isActive ? NavStyle : null }>Photos</NavLink>
+            </VanHostNav>
+            <Outlet />
         </>
     )
 }
@@ -72,3 +78,18 @@ const VanContainer = styled.div`
         font-weight: 600;
     }
 `
+
+const VanHostNav = styled.div`
+    display: flex;
+    width: 60vw;
+    justify-content: space-around;
+
+    a {
+        text-decoration: none;
+        color: #000;
+    }
+`
+
+const NavStyle = {
+    textDecoration: "underline",
+}
