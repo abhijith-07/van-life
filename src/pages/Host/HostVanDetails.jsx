@@ -15,8 +15,6 @@ export default function HostVanDetails() {
         }
     ,[]);
 
-    console.log(vanDetails.name)
-
     return(
         <>
             <BackButtonContainer>
@@ -37,7 +35,7 @@ export default function HostVanDetails() {
                 <NavLink to="pricing" style={ ({ isActive }) => isActive ? NavStyle : null }>Pricing</NavLink>
                 <NavLink to="photos" style={ ({ isActive }) => isActive ? NavStyle : null }>Photos</NavLink>
             </VanHostNav>
-            <Outlet />
+            <Outlet context={{vanDetails}} />
         </>
     )
 }
@@ -82,6 +80,7 @@ const VanContainer = styled.div`
 const VanHostNav = styled.div`
     display: flex;
     width: 60vw;
+    margin: 1rem 0;
     justify-content: space-around;
 
     a {
