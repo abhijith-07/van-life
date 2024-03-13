@@ -12,6 +12,14 @@ export default function VansList() {
     }, [])
 
     return(
+        <>
+        <ExploreHead>Explore Our Van Options</ExploreHead>
+        <VanFilters>
+            <p>Simple</p>
+            <p>Luxury</p>
+            <p>Rugged</p>
+            <p className="clear">Clear Filters</p>
+        </VanFilters>
         <VanContainer>
             {
                 vansImg.map((img, idx) => (
@@ -27,16 +35,41 @@ export default function VansList() {
                 ))
             }
         </VanContainer>
+        </>
     )
 }
 
+const ExploreHead = styled.h1`
+    margin: 1em 0;
+`
+
+const VanFilters = styled.div`
+    display: flex;
+    justify-content: space-around;
+    margin: 1em 0;
+
+    P {
+        padding: 0.25em 1em;
+        color: #fffafa;
+        background-color: #cd5302;
+        cursor: pointer;
+    }
+
+    p.clear {
+        background-color: transparent;
+        color: #000;
+        text-decoration: underline;
+        padding: 0;
+        font-size: 0.8rem;
+    }
+`
 
 const VanContainer = styled.div`
     width: 100vw;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1em;
-    padding: 1rem 0 70px 0;
+    padding: 1rem 0;
 
     a{
         cursor: pointer;
