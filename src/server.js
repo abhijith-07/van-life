@@ -32,14 +32,14 @@ export function makeServer({ environment = "test" } = {}) {
 
     this.get("/api/van-data/vans/", () => ({
       images: [
-        { id:1, url: "/images/van-images/van1.jpg" },
-        { id:2, url: "/images/van-images/van2.jpg" },
-        { id:3, url: "/images/van-images/van3.jpg" },
-        { id:4, url: "/images/van-images/van4.jpg" },
-        { id:5, url: "/images/van-images/van5.jpg" },
-        { id:6, url: "/images/van-images/van6.jpg" },
-        { id:7, url: "/images/van-images/van7.jpg" },
-        { id:8, url: "/images/van-images/van8.jpg" },
+        { id:1, url: "/images/van-images/van1.jpg", type: "simple" },
+        { id:2, url: "/images/van-images/van2.jpg", type:"rugged" },
+        { id:3, url: "/images/van-images/van3.jpg", type:"luxury" },
+        { id:4, url: "/images/van-images/van4.jpg", type:"simple" },
+        { id:5, url: "/images/van-images/van5.jpg", type:"luxury" },
+        { id:6, url: "/images/van-images/van6.jpg", type:"rugged" },
+        { id:7, url: "/images/van-images/van7.jpg", type:"rugged" },
+        { id:8, url: "/images/van-images/van8.jpg", type:"rugged" },
       ]
     }))
 

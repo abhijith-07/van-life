@@ -18,7 +18,10 @@ export default function VansList() {
                     <Link to={`/vans/van/${img.id}`} key={idx} >
                         <Card>
                             <img src={img.url} alt="" />
-                            <h6>Van {img.id}</h6>
+                            <div>
+                                <h6>Van {img.id}</h6>
+                                <p className= {`type-${img.type}`} > {img.type} </p>
+                            </div>
                         </Card>
                     </Link>
                 ))
@@ -37,6 +40,8 @@ const VanContainer = styled.div`
 
     a{
         cursor: pointer;
+        text-decoration: none;
+        color: #000;
     }
 `
 
@@ -48,7 +53,32 @@ const Card = styled.div`
         width: 100%;
     }
 
-    h6 {
+    div {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    div h6 {
         text-align: center;
+        font-size: 1rem;
+    }
+
+    div p {
+        padding: 0.5em 1em;
+        color: #fff;
+        border-radius: 0.25em;
+    }
+
+    .type-simple {
+        background-color: green;
+    }
+
+    .type-luxury {
+        background-color: #e49400;
+    }
+
+    .type-rugged {
+        background-color: #c8015b;
     }
 `
