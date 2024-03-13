@@ -30,9 +30,9 @@ export default function VansList() {
         <>
         <ExploreHead>Explore Our Van Options</ExploreHead>
         <VanFilters>
-            <p onClick={() => setSearchParams({type: "simple"})}>Simple</p>
-            <p onClick={() => setSearchParams({type: "luxury"})}>Luxury</p>
-            <p onClick={() => setSearchParams({type: "rugged"})}>Rugged</p>
+            <p className="type-simple" onClick={() => setSearchParams({type: "simple"})}>Simple</p>
+            <p className="type-luxury" onClick={() => setSearchParams({type: "luxury"})}>Luxury</p>
+            <p className="type-rugged" onClick={() => setSearchParams({type: "rugged"})}>Rugged</p>
             <p className="clear" onClick={() => setSearchParams({})}>Clear Filters</p>
         </VanFilters>
         <VanContainer>
@@ -80,6 +80,18 @@ const VanFilters = styled.div`
         padding: 0.25em 0;
         font-size: 0.8rem;
     }
+    
+    p.type-simple:hover {
+        background-color: #00520a;
+    }
+
+    p.type-luxury:hover {
+        background-color: #b47500;
+    }
+
+    p.type-rugged:hover {
+        background-color: #005764;
+    }
 `
 
 const VanContainer = styled.div`
@@ -98,10 +110,17 @@ const VanContainer = styled.div`
 
 const Card = styled.div`
     width: 100%;
-    
+
     img {
-        border-radius: 1em 1em 0 0;
-        width: 100%;
+        width: 120px;
+        height: 120px;
+        object-fit: cover;
+        display: block;
+        position: relative;
+        margin: 0.5em auto;
+        padding: 0.15em;
+        border-radius: 0.25em;
+        border: 2px solid #000;
     }
 
     div {
@@ -116,20 +135,20 @@ const Card = styled.div`
     }
 
     div p {
-        padding: 0.5em 1em;
+        padding: 0.25em 1em;
         color: #fff;
         border-radius: 0.25em;
     }
 
     .type-simple {
-        background-color: green;
+        background-color: #00520a;
     }
 
     .type-luxury {
-        background-color: #e49400;
+        background-color: #b47500;
     }
 
     .type-rugged {
-        background-color: #c8015b;
+        background-color: #005764;
     }
 `
