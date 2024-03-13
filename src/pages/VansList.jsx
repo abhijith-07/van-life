@@ -1,34 +1,49 @@
 import { useEffect, useState } from "react"
-import { Link } from "react-router-dom"
+import { Link, useSearchParams } from "react-router-dom"
 import styled from "styled-components"
 
 export default function VansList() {
     const [vansImg, setVansImg] = useState([])
+
+    const [searchParams, setSearchParams] = useSearchParams()
     
+    const typeFilter = searchParams.get("type")
+
+    function searchFilter(event) {
+        const params = event.target
+        console.log(params)
+    }
+
+    const displayedVans = typeFilter 
+    ? vansImg.filter(van => van.type === typeFilter)
+    : vansImg
+
     useEffect(() => {
         fetch("/api/van-data/vans/")
         .then(res => res.json())
-        .then(json => setVansImg(json.images))
+        .then(json => {
+            setVansImg(json.images)
+        })
     }, [])
 
     return(
         <>
         <ExploreHead>Explore Our Van Options</ExploreHead>
         <VanFilters>
-            <p>Simple</p>
-            <p>Luxury</p>
-            <p>Rugged</p>
+            <Link>Simple</Link>
+            <Link>Luxury</Link>
+            <Link>Rugged</Link>
             <p className="clear">Clear Filters</p>
         </VanFilters>
         <VanContainer>
             {
-                vansImg.map((img, idx) => (
+                displayedVans.map((img, idx) => (
                     <Link to={`/vans/van/${img.id}`} key={idx} >
                         <Card>
                             <img src={img.url} alt="" />
                             <div>
                                 <h6>Van {img.id}</h6>
-                                <p className= {`type-${img.type}`} > {img.type} </p>
+                                <p className= {`type-${img.type}`} > {img.type.charAt(0).toUpperCase() + img.type.slice(1)} </p>
                             </div>
                         </Card>
                     </Link>
@@ -47,8 +62,11 @@ const VanFilters = styled.div`
     display: flex;
     justify-content: space-around;
     margin: 1em 0;
+    padding: 1em 0 ;
+    border-top: 1px solid #cd5302;
+    border-bottom: 1px solid #cd5302;
 
-    P {
+    a {
         padding: 0.25em 1em;
         color: #fffafa;
         background-color: #cd5302;
@@ -59,7 +77,7 @@ const VanFilters = styled.div`
         background-color: transparent;
         color: #000;
         text-decoration: underline;
-        padding: 0;
+        padding: 0.25em 0;
         font-size: 0.8rem;
     }
 `
