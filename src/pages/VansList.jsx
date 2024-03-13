@@ -30,10 +30,10 @@ export default function VansList() {
         <>
         <ExploreHead>Explore Our Van Options</ExploreHead>
         <VanFilters>
-            <Link>Simple</Link>
-            <Link>Luxury</Link>
-            <Link>Rugged</Link>
-            <p className="clear">Clear Filters</p>
+            <p onClick={() => setSearchParams({type: "simple"})}>Simple</p>
+            <p onClick={() => setSearchParams({type: "luxury"})}>Luxury</p>
+            <p onClick={() => setSearchParams({type: "rugged"})}>Rugged</p>
+            <p className="clear" onClick={() => setSearchParams({})}>Clear Filters</p>
         </VanFilters>
         <VanContainer>
             {
@@ -66,7 +66,7 @@ const VanFilters = styled.div`
     border-top: 1px solid #cd5302;
     border-bottom: 1px solid #cd5302;
 
-    a {
+    p {
         padding: 0.25em 1em;
         color: #fffafa;
         background-color: #cd5302;
